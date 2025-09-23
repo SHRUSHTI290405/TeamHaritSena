@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harit Sena | Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-[#F2EAD3] via-[#F9F5F0] to-[#F2EAD3] min-h-screen">
+
+  <!-- 🔹 Top Header with Logo + Text -->
+  <header class="p-6 flex items-center justify-center gap-3">
+    <img src="./images/logo.jpeg" alt="ECHO MITRA Logo" class="h-12 w-12">
+    <span class="text-2xl font-bold text-[#3A6F43] tracking-wide">ECHO MITRA</span>
+  </header>
+
+  <!-- Container (unchanged) -->
+  <div class="w-11/12 md:w-3/4 lg:w-2/3 bg-white rounded-2xl shadow-2xl overflow-hidden grid md:grid-cols-2 mx-auto">
+
+    <!-- Left Section (Login form) -->
+    <div class="p-8 flex flex-col justify-center bg-[#F9F5F0]">
+      <h2 class="text-2xl font-bold text-[#3A6F43] mb-2">Welcome back</h2>
+      <p class="text-sm text-gray-600 mb-6">Please enter your account details</p>
+
+      <!-- Email -->
+      <input type="email" placeholder="Email" class="w-full px-4 py-3 mb-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3A6F43] outline-none">
+
+      <!-- Password -->
+      <input type="password" placeholder="Password" class="w-full px-4 py-3 mb-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3A6F43] outline-none">
+
+      <div class="flex items-center justify-between text-sm mb-6">
+        <label class="flex items-center gap-2">
+          <input type="checkbox" class="accent-[#3A6F43]"> Keep me logged in
+        </label>
+        <a href="#" class="text-[#F4991A] hover:underline">Forgot Password?</a>
+      </div>
+
+      <!-- Sign In Button -->
+      <button onclick="continueToApp()" class="w-full py-3 rounded-xl bg-[#3A6F43] text-white font-medium hover:bg-[#2f5635] transition">
+        Sign In
+      </button>
+
+      <!-- Social Login -->
+      <div class="flex items-center justify-center mt-6 gap-4">
+        <button class="w-10 h-10 flex items-center justify-center bg-[#F2EAD3] rounded-full shadow hover:scale-110 transition">G</button>
+        <button class="w-10 h-10 flex items-center justify-center bg-[#F2EAD3] rounded-full shadow hover:scale-110 transition">F</button>
+        <button class="w-10 h-10 flex items-center justify-center bg-[#F2EAD3] rounded-full shadow hover:scale-110 transition">GH</button>
+      </div>
+    </div>
+
+    <!-- Right Section (Info/Quote) -->
+    <div class="bg-gradient-to-br from-[#3A6F43] to-[#F4991A] p-8 flex flex-col justify-center text-white relative">
+      <h3 class="text-xl font-semibold mb-4">Why Join Us?</h3>
+      <p class="text-sm leading-relaxed mb-6">
+        Collect, segregate, and recycle waste responsibly. Earn rewards while contributing to a greener tomorrow.
+      </p>
+
+      <!-- Quote -->
+      <blockquote class="text-lg italic font-light border-l-4 border-[#F2EAD3] pl-4 mb-6">
+        "Turning waste into opportunity, together we build a sustainable future."
+      </blockquote>
+
+      <!-- Highlight Box -->
+      <div class="bg-[#F9F5F0] text-[#3A6F43] p-4 rounded-xl shadow-md">
+        <h4 class="font-semibold">Get rewarded for recycling</h4>
+        <p class="text-sm">Cashbacks & coupons await when you recycle with Harit Sena.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script>
+  function continueToApp() {
+  sessionStorage.setItem('roleVisited', 'true');
+  window.location.href = 'index.html';
+}
+</script>
+</html>

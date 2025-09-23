@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harit Sena | Choose Role</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-[#F9F5F0] to-[#F2EAD3] min-h-screen">
+
+  <!-- Top Bar -->
+  <header class="p-6 flex items-center justify-between max-w-6xl mx-auto">
+    <div class="flex items-center gap-2">
+      <img src="./images/logo.jpeg" alt="Harit Sena Logo" class="w-10 h-10">
+      <span class="text-[#3A6F43] font-bold text-xl">ECHO MITRA</span>
+    </div>
+    <a href="login.html" class="text-sm text-[#F4991A] hover:underline">Already have an account? Log in</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 p-6 items-center">
+    <!-- Illustration / Image -->
+    <div class="relative">
+      <img src="./images/rec.jpg" alt="Recycling Illustration" class="rounded-2xl shadow-xl">
+      <div class="absolute bottom-4 left-4 bg-white/90 rounded-xl p-3 text-sm text-[#3A6F43] max-w-xs">
+        Join our mission to recycle and earn rewards. Select your role below and start making a difference.
+      </div>
+    </div>
+
+    <!-- Roles -->
+    <div>
+      <h1 class="text-4xl font-bold text-[#3A6F43] mb-2">Choose Your Role</h1>
+      <p class="text-gray-600 mb-6">Select how you want to participate in the Harit Sena ecosystem.</p>
+
+      <!-- Tabs / Buttons -->
+      <div class="space-y-5">
+        <!-- Supplier -->
+        <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition p-5">
+          <h2 class="text-xl font-semibold text-[#3A6F43] mb-3">Supplier</h2>
+          <p class="text-sm text-gray-600 mb-3">Individuals or organisations who supply recyclable waste.</p>
+          <div class="flex flex-wrap gap-2">
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('supplier','Resident')">🏠 Resident</button>
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('supplier','Hostel')">🏢 Hostel</button>
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('supplier','Hotel')">🏨 Hotel</button>
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('supplier','Canteen')">🍴 Canteen</button>
+          </div>
+        </div>
+
+        <!-- Collector -->
+        <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition p-5">
+          <h2 class="text-xl font-semibold text-[#3A6F43] mb-3">Collector</h2>
+          <p class="text-sm text-gray-600 mb-3">Collect waste from suppliers using various vehicles.</p>
+          <div class="flex flex-wrap gap-2">
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('collector','Small Truck')">🚚 Small Truck</button>
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('collector','Large Truck')">🚛 Large Truck</button>
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('collector','E-Rickshaw')">🛺 E-Rickshaw</button>
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('collector','Handcart')">🛒 Handcart</button>
+          </div>
+        </div>
+
+        <!-- Receiver -->
+        <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition p-5">
+          <h2 class="text-xl font-semibold text-[#3A6F43] mb-3">Receiver</h2>
+          <p class="text-sm text-gray-600 mb-3">Receive, recycle, and process waste at your facility.</p>
+          <div class="flex flex-wrap gap-2">
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('receiver','Recycling Plant')">♻️ Recycling Plant</button>
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('receiver','Biogas Plant')">🔥 Biogas Plant</button>
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('receiver','Compost Center')">🌱 Compost Center</button>
+            <button class="px-3 py-2 bg-[#F2EAD3] rounded-xl hover:bg-[#F9F5F0]" onclick="selectAndGo('receiver','NGO')">🤝 NGO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function selectAndGo(role, option) {
+      localStorage.setItem("userRole", role);
+      localStorage.setItem("userOption", option);
+      window.location.href = "create-account.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<script>
+  if (!sessionStorage.getItem('roleVisited')) {
+    window.location.href = 'role.html';
+  }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECHO MITRA | Waste Flow</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-[#F2EAD3] via-[#F9F5F0] to-[#F2EAD3] min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-6 flex items-center justify-center gap-3">
+    <img src="./images/logo.jpeg" alt="ECHO MITRA Logo" class="h-12 w-12 rounded-full">
+    <span class="text-2xl font-bold text-[#3A6F43] tracking-wide">ECHO MITRA</span>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center px-4">
+    <h1 class="text-3xl md:text-4xl font-bold text-[#3A6F43] mb-3">Scheduled Pickups & Vehicle Dispatch</h1>
+    <p class="text-gray-600 max-w-2xl mx-auto">
+      Fill out the form below to schedule a pickup and start tracking your waste journey.
+    </p>
+  </section>
+
+  <!-- Form -->
+  <section class="mt-8 w-11/12 md:w-3/4 lg:w-2/3 mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+    <div class="p-8 bg-[#F9F5F0]">
+      <form id="pickupForm" class="space-y-4">
+        <div class="grid md:grid-cols-2 gap-4">
+          <input required name="name" placeholder="Your Name" class="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3A6F43] outline-none">
+          <input required name="org" placeholder="Company / Society / Org Name" class="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3A6F43] outline-none">
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <input required name="wet" placeholder="Wet Waste (kg)" class="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3A6F43] outline-none">
+          <input required name="dry" placeholder="Dry Waste (kg)" class="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3A6F43] outline-none">
+          <input required name="metal" placeholder="Metal Waste (kg)" class="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3A6F43] outline-none">
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <input required name="location" placeholder="Pickup Location" class="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3A6F43] outline-none">
+          <input required name="phone" placeholder="Contact Number" class="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3A6F43] outline-none">
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-[#3A6F43] text-white font-medium hover:bg-[#2f5635] transition">
+          Schedule Pickup
+        </button>
+      </form>
+
+      <!-- Success Message -->
+      <div id="pickupMessage"
+        class="mt-6 hidden p-6 bg-white rounded-xl shadow-lg border-l-4 border-green-500">
+        <div class="flex items-center gap-3">
+          <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <div>
+            <h4 class="text-lg font-semibold text-green-600">Pickup Scheduled!</h4>
+            <p class="text-gray-600 text-sm">We’ll arrive at <span id="pickupTime">10:30 AM tomorrow</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracking Section -->
+  <section class="mt-12 w-11/12 md:w-3/4 lg:w-2/3 mx-auto">
+    <h2 class="text-2xl font-bold text-[#3A6F43] mb-4 text-center">End-to-End Digital Waste Tracking</h2>
+    <div id="trackingInfo" class="grid md:grid-cols-3 gap-4">
+      <div class="p-6 bg-white rounded-xl shadow text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/189/189690.png" class="w-12 h-12 mx-auto mb-3" alt="">
+        <h3 class="font-semibold text-[#3A6F43]">Collected</h3>
+        <p class="text-sm text-gray-600">Your waste is collected.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/743/743131.png" class="w-12 h-12 mx-auto mb-3" alt="">
+        <h3 class="font-semibold text-[#3A6F43]">In Process</h3>
+        <p class="text-sm text-gray-600">Recycling is underway.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" class="w-12 h-12 mx-auto mb-3" alt="">
+        <h3 class="font-semibold text-[#3A6F43]">Completed</h3>
+        <p class="text-sm text-gray-600">Recycling finished successfully.</p>
+      </div>
+    </div>
+  </section>
+
+ <!-- Rewards Section -->
+<section class="mt-12 w-11/12 md:w-3/4 lg:w-2/3 mx-auto text-center">
+  <h2 class="text-2xl font-bold text-[#3A6F43] mb-4">Supplier Rewards via Revenue Sharing</h2>
+  <div id="rewardsBox" class="bg-gradient-to-r from-[#fff8f2] to-[#f9f0e4] rounded-2xl shadow-xl p-8 flex flex-col md:flex-row items-center justify-around gap-6">
+    <div>
+      <p class="text-gray-600 text-sm">Points Earned</p>
+      <p id="points" class="text-4xl font-extrabold text-[#F4991A] drop-shadow-lg">0</p>
+    </div>
+    <div>
+      <p class="text-gray-600 text-sm">Cash Rewards (₹)</p>
+      <p id="cash" class="text-4xl font-extrabold text-[#F4991A] drop-shadow-lg">0</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="mt-16 bg-[#3A6F43] text-white py-8">
+    <div class="w-11/12 md:w-3/4 lg:w-2/3 mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-center md:text-left">
+        <h3 class="font-bold text-lg">ECHO MITRA</h3>
+        <p class="text-sm text-gray-200">Making waste management smarter & greener.</p>
+      </div>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-[#F4991A] transition">About</a>
+        <a href="#" class="hover:text-[#F4991A] transition">Contact</a>
+        <a href="#" class="hover:text-[#F4991A] transition">Privacy</a>
+      </div>
+    </div>
+    <div class="mt-6 text-center text-xs text-gray-300">
+      © 2025 ECHO MITRA. All Rights Reserved.
+    </div>
+  </footer>
+
+<script>
+const form = document.getElementById('pickupForm');
+const msg = document.getElementById('pickupMessage');
+const timeSpan = document.getElementById('pickupTime');
+const pointsEl = document.getElementById('points');
+const cashEl = document.getElementById('cash');
+const rewardsBox = document.getElementById('rewardsBox');
+
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+
+  const btn = form.querySelector('button[type=submit]');
+  btn.disabled = true;
+  btn.textContent = 'Scheduling…';
+
+  setTimeout(()=>{
+    msg.classList.remove('hidden');
+    msg.classList.add('animate__animated','animate__fadeInUp');
+
+    timeSpan.textContent = '10:30 AM tomorrow';
+
+    // tracking steps
+    const steps = document.querySelectorAll('#trackingInfo > div');
+    steps.forEach((s,i)=>{
+      setTimeout(()=>{
+        s.classList.add('border-l-4','border-green-500','animate__animated','animate__fadeIn');
+      }, i*1000);
+    });
+
+    // add one-time animation to rewards box
+    rewardsBox.classList.add('animate__animated','animate__fadeInUp');
+
+    // counter animation for rewards
+    let pts = 0, cash = 0;
+    const ptsTarget = 150, cashTarget = 300;
+    const int = setInterval(()=>{
+      if (pts < ptsTarget) {
+        pts += 5; pointsEl.textContent = pts;
+      }
+      if (cash < cashTarget) {
+        cash += 10; cashEl.textContent = cash;
+      }
+      if (pts>=ptsTarget && cash>=cashTarget) clearInterval(int);
+    }, 50);
+
+    btn.textContent = 'Scheduled';
+  }, 1500);
+});
+</script>
+
+</body>
+</html>
